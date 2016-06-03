@@ -1,7 +1,7 @@
 #include "MonopolyPos.h"
 #include <iomanip>
 
-std::map<Place, int> _placeTouches
+std::map<Place, int> _placeTouches // fills place touches map
 {
 	{ Place::ATLANTIC_AVENUE, 0 },
 	{ Place::BALTIC_AVENUE, 0 },
@@ -45,7 +45,7 @@ std::map<Place, int> _placeTouches
 	{ Place::WATER_WORKS, 0 }
 };
 
-std::map<Place, std::string> _placeNames
+std::map<Place, std::string> _placeNames // fills placenames map
 {
 	{Place::ATLANTIC_AVENUE, "Atlantic Avenue"},
 	{Place::BALTIC_AVENUE, "Baltic Avenue"},
@@ -107,13 +107,13 @@ Place MonopolyPos::goTo(Place p)
 	return _pos;
 }
 
-void MonopolyPos::moveForward(int i)
+void MonopolyPos::moveForward(int i) 
 {
 	int newPos = static_cast<int>(_pos);
 	for (int j = 0; j < i; j++)
 	{
 		newPos++;
-		if (newPos > 39)
+		if (newPos > 39) // if _pos is greater than go sets _pos to go
 		{
 			newPos -= 40;
 		}
@@ -137,7 +137,7 @@ void MonopolyPos::moveBackward(int i)
 	for (int j = 0; j < i; j++)
 	{
 		newPos--;
-		if (newPos > 39)
+		if (newPos > 39) // if _pos is greater than go sets _pos to go
 		{
 			newPos -= 40;
 		}
@@ -154,7 +154,7 @@ void MonopolyPos::moveBackward(int i)
 	goToJail();
 }
 
-Place MonopolyPos::nearestRailroad()
+Place MonopolyPos::nearestRailroad() // finds nearest railroad to _pos
 {
 	int reading = distanceTo(Place::READING_RAILROAD);
 	int pennsyl = distanceTo(Place::PENNSYLVANIA_RAILROAD);
@@ -171,7 +171,7 @@ Place MonopolyPos::nearestRailroad()
 		return Place::SHORT_LINE_RAILROAD;
 }
 
-Place MonopolyPos::nearestUtility()
+Place MonopolyPos::nearestUtility() // finds nearest ultility to _pos
 {
 	int waterWorks = distanceTo(Place::WATER_WORKS);
 	int electricCompany = distanceTo(Place::ELECTRIC_COMPANY);
@@ -260,7 +260,7 @@ bool MonopolyPos::isCommChest()
 		return false;
 }
 
-void MonopolyPos::results() 
+void MonopolyPos::results() // displays results
 {
 	for (auto e : _placeTouches)
 		std::cout << std::setw(25) << placeToString(e.first) << ": " << ((double)e.second / 10000) << "%" << std::endl;
@@ -310,7 +310,7 @@ void MonopolyPos::fillMaps()
 	_placeNames.insert(std::pair<Place, std::string>(Place::BOARDWALK, "BoardWalk"));
 }
 
-void MonopolyPos::goToJail()
+void MonopolyPos::goToJail() // tests to see if _pos == goToJail
 {
 	if (_pos == Place::GOTO_JAIL)
 		_pos = Place::JAIL;

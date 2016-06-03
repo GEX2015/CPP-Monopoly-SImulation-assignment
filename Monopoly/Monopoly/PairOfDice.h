@@ -8,9 +8,9 @@ public:
 	PairOfDice();
 	~PairOfDice();
 
-	int roll();
-	bool isDouble();
-	bool isThreeDoubles();
+	int roll(); // rolls two dice
+	bool isDouble(); // tests to see if rolled doubles
+	bool isThreeDoubles(); // tests if three doubles were rolled in a row
 
 private:
 	bool _double;

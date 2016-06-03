@@ -12,8 +12,8 @@ PairOfDice::~PairOfDice()
 
 int PairOfDice::roll()
 {
-	_die1 = (rand() % 6 + 1);
-	_die2 = (rand() % 6 + 1);
+	_die1 = (rand() % 6 + 1); // rolls die 1
+	_die2 = (rand() % 6 + 1); // rolls die 2
 
 	isDouble();
 
@@ -22,7 +22,7 @@ int PairOfDice::roll()
 
 bool PairOfDice::isDouble()
 {
-	if (_die1 == _die1)
+	if (_die1 == _die1) // tests if doubles rolled
 	{
 		_doublesInARow++;
 		return true;
@@ -34,7 +34,7 @@ bool PairOfDice::isDouble()
 	}
 }
 
-bool PairOfDice::isThreeDoubles()
+bool PairOfDice::isThreeDoubles() // returns true if doubles rolled three times in a row
 {
 	if (_doublesInARow == 3)
 		return true;

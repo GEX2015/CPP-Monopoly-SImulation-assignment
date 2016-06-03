@@ -71,22 +71,22 @@ public:
 	MonopolyPos();
 	~MonopolyPos();
 
-	Place goTo(Place p);
-	void moveForward(int i);
+	Place goTo(Place p); // go to p
+	void moveForward(int i); 
 	void moveBackward(int i);
-	Place nearestRailroad();
-	Place nearestUtility();
+	Place nearestRailroad(); // returns nearest rail road
+	Place nearestUtility(); // returns nearest utility
 	Place getPos();
 	CommunityChest drawCommunityChest();
 	Chance drawChance();
-	std::string placeToString(Place p);
-	void placeTouched();
+	std::string placeToString(Place p); 
+	void placeTouched(); // adds to places touched
 	int distanceTo(Place p);
 	bool isChance();
 	bool isCommChest();
-	void results();
+	void results(); // displays results 
 	void fillMaps();
-	void goToJail();
+	void goToJail(); // tests if _pos == goToJail
 
 private:
 	Place _pos;
